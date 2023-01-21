@@ -22,6 +22,21 @@ body {
 .md-content a:hover {
   text-decoration: underline;
 }
+/*
+.md-content a[external]:after {
+  font-family: "icons" !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  font-size: 65%;
+  content: "  \e900 ";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+*/
 
 .md-content ul {
   list-style: square;
@@ -215,7 +230,7 @@ body {
 }
 .md-typeset table:not([class]) th,
 .md-typeset table:not([class]) td {
-  padding: 0.6rem;
+  padding: 0.55rem 0.62rem;
 }
 
 .md-typeset .compact table:not([class]) th,
@@ -264,6 +279,48 @@ img.linux-badge {
     margin: 0;
   }
 }
+
+/* Definition lists */
+.md-typeset dl dt {
+  font-weight: 600;
+}
+.md-typeset dl dd {
+  margin-top: 0.25rem;
+}
+/*.md-typeset dl dd p {
+  margin-top: 0.7em;
+  margin-bottom: 0.7em;
+} */
+/*.md-typeset dl dd ul {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+} */
+/*
+.md-typeset dl dt a {
+  font-size: 1.15em;
+  font-family: Titillium Web;
+  color: var(--md-default-fg-color);
+}
+.md-typeset dl dt a:hover {
+  color: var(--md-default-fg-color);
+  text-decoration: none;
+} */
+
+/* Tags */
+.md-typeset em.default {
+  position: relative;
+  top: -0.05rem;
+  margin-right: 0.1rem;
+  padding: 0.05rem 0.25rem;
+  border-radius: 0.13rem;
+  font-size: 0.6rem;
+  font-weight: bold;
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.02rem;
+  background: #888;
+  color: var(--md-primary-bg-color);
+} 
 
 /* Footer */
 .md-footer-meta {
