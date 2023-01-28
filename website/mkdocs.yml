@@ -101,12 +101,13 @@ nav:
 
       - Sound:
         - documentation/sound/overview.md
+        - documentation/sound/on-subjectivity.md
         - documentation/sound/dosbox-mixer.md
         - documentation/sound/mixer-effects.md
         - documentation/sound/analog-output-filters.md
         - Sound devices:
           - documentation/sound/sound-devices/adlib-cms-sound-blaster.md
-          - documentation/sound/sound-devices/roland-midi.md
+          - documentation/sound/sound-devices/roland-mt-32.md
           - documentation/sound/sound-devices/general-midi.md
           - documentation/sound/sound-devices/pc-speaker.md
           - documentation/sound/sound-devices/tandy.md

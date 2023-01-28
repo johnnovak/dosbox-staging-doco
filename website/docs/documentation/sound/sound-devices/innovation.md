@@ -14,7 +14,7 @@ You can set the parameters of the Innovation SSI-2001 card in the
 
 :   Model of chip to emulate in the Innovation SSI-2001 card:
 
-    - `none` --  Disables the card (default).
+    - `none` *default*{ .default } --  Disables the card.
     - `auto` --  Selects the 6581 chip.
     - `6581` --  The original chip, known for its bassy and rich character.
     - `8580` --  A later revision that more closely matched the SID specification.
@@ -26,7 +26,7 @@ You can set the parameters of the Innovation SSI-2001 card in the
 
 :   The SID chip's clock frequency, which is jumperable on reproduction cards:
 
-    - `default` -- Uses 0.895 MHz, per the original SSI-2001 card.
+    - `default` *default*{ .default } -- Uses 0.895 MHz, per the original SSI-2001 card.
     - `c64ntsc` -- Uses 1.023 MHz, per NTSC Commodore PCs and the DuoSID.
     - `c64pal` --  Uses 0.985 MHz, per PAL Commodore PCs and the DuoSID.
     - `hardsid` -- Uses 1.000 MHz, available on the DuoSID.
@@ -36,7 +36,7 @@ You can set the parameters of the Innovation SSI-2001 card in the
 
 :   The IO port address of the Innovation SSI-2001.
 
-    Possible values: `240`, `260`, `280` (default), `2a0`, `2c0`.
+    Possible values: `240`, `260`, `280` *default*{ .default }, `2a0`, `2c0`.
 
 
 ##### 6581filter
@@ -55,6 +55,8 @@ You can set the parameters of the Innovation SSI-2001 card in the
 
 :   Filter for the Innovation audio output:
 
-    - `off`:       Don't filter the output (default).
-    - `<custom>`:  Custom filter definition; see `sb_filter` for details.
+    - `off` *default*{ .default } -- Don't filter the output.
+    - `<custom>` -- Custom filter definition; see
+      [Custom filter settings](../../analog-output-filters/#custom-filter-settings)
+      for details.
 

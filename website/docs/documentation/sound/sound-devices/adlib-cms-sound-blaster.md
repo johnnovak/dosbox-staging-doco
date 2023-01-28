@@ -1,4 +1,4 @@
-# AdLib, CM/S & Sound Blaster
+# AdLib, CMS & Sound Blaster
 
 ## Overview
 
@@ -12,7 +12,7 @@ for the rest of the DOS-era until the late 90s.
 
 DOSBox can emulate all major revisions of the Sound Blaster family. One of the
 most common models was the [Sound Blaster 16](#sound-blaster-16) which has
-good (but not perfect) backwards-compatibility with earlier cards. This is the
+good (but not perfect) backward-compatibility with earlier cards. This is the
 sound card DOSBox emulates by default to ensure the widest possible
 compatibility with games,
 
@@ -20,13 +20,13 @@ Most games that support the AdLib or Sound Blaster work fine with the DOSBox
 defaults, and don't require you to load any DOS drivers. A small percentage of
 games, however---especially from the early Sound Blaster days---only work with
 a specific model, or require a driver to be loaded. Please refer to the [List
-of games that require a sound driver](#){ external } on the wiki for more
+of games that require a sound driver](#){ external } on the wiki for further
 details.
 
 
 ### On-board synthesisers
 
-In addition to their digital sound playback capabilities (also referred to as
+In addition to their digital audio playback capabilities (also referred to as
 **PCM sound**), all Sound Blaster models feature at least one on-board
 synthesiser for the generation of music and sound effects. The most important
 of these is the [AdLib](#adlib-music-synthesizer-card) that is present on all
@@ -37,7 +37,7 @@ accurate NukedOPL library to achieve a nearly bit-perfect emulation of the OPL
 chips.
 
 The other less common synthesiser is the [Creative Music
-System](#creative-music-system-cms) (also referred to as **CM/S**, or
+System](#creative-music-system-cms) (also referred to as **C/MS**, or
 **CMS**) which is only present on the earliest Sound Blaster models.
 
 Because the history and even the emulation of these synthesisers are so
@@ -50,19 +50,19 @@ together.
 The below table lists all Sound Blaster models emulated by DOSBox, along with
 their main capabilities:
 
-| Model | `sbtype` | Digital sound | Synthesiser |
-| ----- | -------- | ------------- | ----------- |
+| Model | `sbtype` value | Digital audio | Synthesiser |
+| ----- | -------------- | ------------- | ----------- |
 | [Game Blaster](#creative-music-system-cms-game-blaster) | `gb` | N/A | CMS (stereo)
-| [Sound Blaster 1.0](#sound-blaster-10) | `sb1` | 8-bit mono 22kHz | OPL2 (mono)<br>CMS (stereo)
-| [Sound Blaster 2.0](#sound-blaster-20) | `sb2` | 8-bit mono 22kHz | OPL2 (mono)<br>CMS (stereo, optional)
-| [Sound Blaster Pro](#sound-blaster-pro) | `sbpro1` | 8-bit mono 44kHz<br>8-bit stereo 22kHz | Dual OPL2 (stereo)
-| [Sound&nbsp;Blaster&nbsp;Pro&nbsp;2.0](#sound-blaster-pro-20) | `sbpro2` | 8-bit stereo 44.1kHz | OPL3 (stereo)
+| [Sound Blaster 1.0](#sound-blaster-10) | `sb1` | 8-bit mono 23kHz | OPL2 (mono)<br>CMS (stereo)
+| [Sound Blaster 2.0](#sound-blaster-20) | `sb2` | 8-bit mono 23kHz | OPL2 (mono)<br>CMS (stereo)
+| [Sound Blaster Pro](#sound-blaster-pro) | `sbpro1` | 8-bit mono 44kHz<br>8-bit stereo 23kHz | Dual OPL2 (stereo)
+| [Sound&nbsp;Blaster&nbsp;Pro&nbsp;2.0](#sound-blaster-pro-20) | `sbpro2` | 8-bit mono 44kHz<br>8-bit stereo 23kHz | OPL3 (stereo)
 | [Sound Blaster 16](#sound-blaster-16) | `sb16` | 16-bit stereo 44kHz | OPL3 (stereo)
 
 
 ### Mixer channels
 
-The digital sound of the Sound Blaster is output to the **`SB`** mixer channel,
+The digital audio of the Sound Blaster is output to the **`SB`** mixer channel,
 while the AdLib (OPL) synthesiser has its own dedicated **`OPL`** channel. Both
 channels can be either mono or stereo, depending on the particular Sound
 Blaster model being emulated.
@@ -70,14 +70,14 @@ Blaster model being emulated.
 The Creative Music System synthesiser has its own dedicated **`CMS`** channel,
 which is always stereo.
 
-The upshot of this is that the digital sound and synthesiser volumes can be
-adjusted independently via the DOSBox mixer (e.g. in games that use
-digital sound for speech and sound effects, and the synthesiser for music).
+The upshot of this is that the digital audio and synthesiser volumes can be
+adjusted independently via the DOSBox mixer (e.g., in games that use
+digital audio for speech and sound effects, and the synthesiser for music).
 
 !!! note
 
     Starting with the Sound Blaster Pro, programs can adjust the volume of the
-    digital sound, OPL, and CD Audio channels via the Sound Blaster software
+    digital audio, OPL, and CD Audio channels via the Sound Blaster software
     mixer. By default, DOSBox forwards these adjustments to the DOSBox mixer,
     allowing programs to change the volumes of these channels. This can
     potentially result in your manually set volumes being overridden. To
@@ -113,24 +113,23 @@ description of the config settings for troubleshooting tips.
 
 ### Selecting the best Sound Blaster model for a game
 
-The default lowest common denominator settings will serve you well if you just
-want to play some games with minimum hassle. In that case, you might as well
-stop reading this chapter now, and only come back to it if you've encountered
-issues with certain titles, or if you want to further your understanding of
-the subtler differences between the various Sound Blaster models.
+DOSBox emulates the [Sound Blaster 16](#sound-blaster-16) by default to ensure
+the widest overall compatibility with DOS games. This lowest common
+denominator setting will serve you well if you just want to play some games
+with minimum hassle. If that's the case, you might as well stop reading this
+chapter now, and only come back to it if you've encountered issues with
+certain titles, or if you want to further your understanding of the subtler
+differences between the various Sound Blaster models.
 
-For the ones who are still with us (or who have come back to learn more!),
-here's the thing: if you want to coax the best sound out of a particular game,
-often you'll need to select a specific Sound Blaster model the game was primarily
-developed for. The reason for this lies in Creative's own failure to provide
-accurate backwards compatibility with their earlier cards.
-
-
+For the audio enthusiasts who are still with us, here's the thing: if you want
+to coax the best sound out of a particular game, often you'll need to select a
+specific Sound Blaster model the game was primarily developed for.  Although
+the Sound Blaster 16 is compatible with earlier models, this compatibility is
+imperfect and is plagued by a range of issues:
 
 Stereo bug
-:   Games with stereo digital sound written for the Sound Blaster Pro 1.0 or
-    2.0 output mono sound only in the backwards-compatibility mode of the Sound
-    Blaster 16.
+:   Due to a design flaw, games with support for stereo digital audio on
+    Sound Blaster Pro output mono sound only on the Sound Blaster 16.
 
 Different analog low-pass output filters
 :   Sound Blaster cards before the Sound Blaster 16 have a fixed frequency
@@ -147,15 +146,15 @@ Different analog low-pass output filters
     sounds overly muffled on the Sound Blaster 16 compared to earlier models.
 
 Dual OPL2 support
-:   The Sound Blaster Pro 1.0 is capable of stereo **Dual OPL2** operation
+:   The Sound Blaster Pro 1.0 is capable of stereo "dual OPL2" operation
     thanks to its two on-board OPL2 chips. This is the only Sound Blaster
     model with a dual OPL2 configuration. Previous models feature a single
-    OPL2 chip, capable of mono operation only, and while later
-    cards have the improved OPL3 which *can* output stereo sound, programs written
-    for dual OPL2 won't work produce stereo sound on OPL3, and vice versa.
-
-
-
+    OPL2 chip that can output mono sound only, and later cards have the
+    improved OPL3 chip that can also output stereo. Stereo sound on dual OPL2
+    and OPL3 needs to be programmed differently, and some games were targeting
+    only one of these two incompatible stereo OPL modes. Therefore, games that
+    were written for dual OPL2 will only produce stereo synthesised sound on
+    the Sound Blaster Pro 1.0 and no other model.
 
 To provide a good out-of-the-box experience that works well enough with most
 games without tinkering, DOSBox defaults to the imaginary `modern` [filter
@@ -164,13 +163,13 @@ linear-interpolation instead of accurately emulating the analog output
 filter---this makes most games sound decent regardless of the Sound Blaster
 model in use, but it's not authentic.
 
-For the best authentic results, you need to set the most appropriate Sound
-Blaster model for each game via the [sb_type](#sb-type) configuration
-setting. Additionally, you need to set the [sb_filter](#sb_filter) setting to `auto`
-to let DOSBox select the output filter appropriate to the emulated model.
+For the best authentic results, set the most appropriate Sound Blaster model
+for each game via the [sb_type](#sb-type) configuration setting. Additionally,
+set the [sb_filter](#sb_filter) setting to `auto` to let DOSBox select the
+output filter appropriate for the emulated Sound Blaster model.
 
 For example, use the following settings to enable authentic Sound Blaster Pro
-1.0 emulation with Dual OPL2 support, suitable for games from the early 90s:
+1.0 emulation with dual OPL2 support:
 
 ``` ini
 [sblaster]
@@ -179,10 +178,8 @@ sb_filter = auto
 ```
 
 Determining the best Sound Blaster model for a game can be tricky as the
-different cards were released close to each other, so simply looking at the
-game's release date often doesn't help much. In some cases both the Sound
-Blaster 16 and earlier models can be selected in the game's configuration, yet
-the Sound Blaster 16 is not the best option. Ultimately, you'll need to do a
+different cards were released very close to each other; simply looking at the
+game's release date often doesn't help much. Ultimately, you'll need to do a
 little bit of research, experiment, and trust your ears.
 
 
@@ -192,15 +189,35 @@ little bit of research, experiment, and trust your ears.
 
 The **AdLib Music Synthesizer Card** (typically simply referred to as
 **AdLib**) was released by Ad Lib in 1987. It was the first popular sound card
-for IBM PC compatibles, capable of producing multitimbral FM music and sound
-effects via its Yamaha OPL2 synthesizer chip. Digital audio is not supported
-on the card.
+for IBM PC compatibles, capable of producing multichannel music and sound
+effects via its Yamaha OPL2 synthesizer chip.
 
-Being such a huge step up from the PC speaker, the AdLib was an instant
-success. As it quickly became a de facto standard, many competing sound card
+Being such a huge step up from the PC speaker, the AdLib took the market by
+storm. As it quickly became a de facto standard, many competing sound card
 manufacturers started including full AdLib compatibility on their cards. The
-result of this is that virtually all DOS games from 1988 onwards support the
+result of this is that virtually all DOS games from 1990 onwards support the
 AdLib, at least as a fallback option.
+
+<figure markdown>
+  <audio controls src="https://archive.org/download/dosbox-staging-v0.79.0-reverb-and-chorus/alone-in-the-dark.mp3"> Your browser does not support the <code>audio</code> element.</audio>
+
+  <figcaption markdown>
+  Intro music of Alone in the Dark (floppy version) on the AdLib card
+  </figcaption>
+</figure>
+
+Digital audio is not supported on the card, but some games were able to
+approximate it with various tricks (e.g., **F-15 Strike Eagle II** by
+MicroProse).
+
+<figure markdown>
+  <audio controls src="https://archive.org/download/dosbox-staging-v0.79.0-reverb-and-chorus/alone-in-the-dark.mp3"> Your browser does not support the <code>audio</code> element.</audio>
+
+  <figcaption markdown>
+  F-15 Strike Eagle II on the AdLib card
+  </figcaption>
+</figure>
+
 
 Use the following settings to enable AdLib (OPL2) emulation:
 
@@ -210,93 +227,100 @@ sbtype = none
 oplmode = opl2
 ```
 
-It was still possible, however, to output PCM sound with software by
-modulating the playback volume at an audio rate, as was done, for example, in
-the MicroProse game F-15 Strike Eagle II[5] and the multi-channel music editor
-Sound Club for MS-DOS.[6]
-
 !!! note
 
-    When [oplmode](#oplmode) is set to `opl2`, C/MS emulation is always
-    enabled as well. This is a historical shortcoming of DOSBox and will be
-    addressed in a future version.
+    When [oplmode](#oplmode) is set to `opl2`, CMS emulation is always
+    enabled as well. This is legacy DOSBox behaviour, and will be addressed in
+    a future version.
 
 
-## Creative Music System (C/MS) / Game Blaster
 
-Originally named the Creative Music System (CMS), but the year after rebranded as the Game Blaster.
+## Creative Music System (CMS) / Game Blaster
 
-The Creative Music System was Creatives first sound card released in 1987, and were later rebranded as Game Blaster.
+The **Creative Music System** (also referred to as **CMS** or **C/MS**) was
+released in August 1987 by Creative Technology. This was the first sound card
+of the company, it sounded like a much simpler variant of the AdLib card, and
+it did not sell that well.
 
-The **Creative Music System** (also referred to as **C/MS** or **CMS**) was
-released in August 1987 by Creative Technology. The card featured two Philips
-SAA-1099 chips, allowing multitimbral stereo sound via FM synthesis. It
-sounded like a much simpler variant of the AdLib card and it did not sell that
-well.
+The card was rebranded as **Game Blaster** a year later, without making any
+changes to the hardware.
 
-Use the following settings to enable Game Blaster emulation:
+Use the following setting to enable Game Blaster emulation:
 
 ``` ini
 [sblaster]
 sbtype = gb
 ```
 
+!!! note
+
+    As the CMS is also present on the Sound Blaster 1.0, and optionally on the
+    Sound Blaster 2.0, CMS support in some early games might only work with
+    either the Game Blaster or one of the Sound Blaster models, but not both.
+
 
 ## Sound Blaster 1.0
 
 The original **Sound Blaster 1.0** was released by Creative Technology in 1989
 as the successor of their Game Blaster card. It was the first sound card on
-the market to have digital sample playback capability; it could play back
-1-channel 8-bit digital audio at up to 22kHz sample rate. It was also 100%
-C/MS and AdLib (Yamaha OPL2) compatible, making the card live up to its
-"Killer Kard" code name. In less than a year, the Sound Blaster became the
-best-selling expansion card for the PC.
+the market to have digital audio playback capabilities; it could output 8-bit
+digital audio at up to 23kHz sample rates on a single mono channel. Full
+compatibility with the CMS and the AdLib (Yamaha OPL2) played a critical role
+in the card's enourmous success. In less than a year, the Sound Blaster became
+the best-selling expansion card for the PC.
 
-This transformed DOS gaming, as sampled sound effects could be used while simultaneously playing music via the OPL2 or CMS synthesiser chips.
+This had transformed DOS gaming, as games could use realistic digital audio
+effects while simultaneously playing music via the OPL2 or CMS synthesiser
+chips.
 
-Use the following settings to enable Sound Blaster 1.0 emulation:
+Use the following setting to enable Sound Blaster 1.0 emulation:
 
 ``` ini
 [sblaster]
 sbtype = sb1
 ```
 
-Only uses DMA 1 and IRQ 7
+!!! note
+
+    Certain games from the early Sound Blaster days might only work with the
+    Sound Blaster 1.0 and no other models.
+
 
 ## Sound Blaster 2.0
 
 The **Sound Blaster 2.0** was released by Creative Technology in October 1991.
-Similarly to Sound Blaster 1.0, it can play back 1-channel 8-bit digital
-audio, but the maximum sample rate is increased to 44.1 kHz.
+Similarly to its predecessor, the Sound Blaster 1.0, it can play back 8-bit
+digital audio on a single mono channel, but the maximum sample rate has been
+increased to 44kHz.
 
-The card retains the perfect AdLib (OPL2) compatibility, but C/MS support was
-optional.
+The card retains the perfect AdLib (OPL2) compatibility, but CMS support was
+only available as an optional add-on. Some early games specifically written
+for Sound Blaster 1.0 might have problems with this or later cards.
 
-Some early games specifically written for Sound Blaster 1.0 have problems with
-this or later cards.
-
-Use the following settings to enable Sound Blaster 2.0 emulation:
+Use the following setting to enable Sound Blaster 2.0 emulation:
 
 ``` ini
 [sblaster]
 sbtype = sb2
 ```
 
-Only uses DMA 1 and IRQ 7
-
 
 ## Sound Blaster Pro
 
-The **Sound Blaster Pro** (or **Sound Blaster Pro 1.0**) was released by
-Creative Technology in May 1991. It is backward-compatible with the earlier
-models, but it can also output stereo digital audio up to 22 kHz sample rates,
-and it features a pair of Yamaha OPL2 chips instead of just one for stereo FM
-sound.
+The **Sound Blaster Pro** (retroactively also referred to as **Sound Blaster
+Pro 1.0**) was released by Creative Technology in May 1991. This was the first
+model that introduced stereo sound into the Sound Blaster lineup. It is
+backward-compatible with earlier models, but in addition to 8-bit mono
+playback of digital audio at up to to 44kHz, it's also capable of stereo 8-bit
+output at a maximum of 23kHz. A distinctive feature of the card is a *pair* of
+on-board Yamaha OPL2 chips to support stereo synthesised sound.
 
-This is the only card supported by the known OEM releases of Microsoft Windows
-3.0a with Multimedia Extensions.
+This is the only Sound Blaster model with such a dual OPL2 configuration; many
+games take advantage of it and output stereo OPL music when configured for the
+Sound Blaster Pro. Please refer to the [List of games that support stereo OPL
+sound](TODO) for further details.
 
-Use the following settings to enable Sound Blaster Pro emulation:
+Use the following setting to enable Sound Blaster Pro emulation:
 
 ``` ini
 [sblaster]
@@ -305,11 +329,19 @@ sbtype = sbpro1
 
 !!! important
 
-    Software specifically written for the dual OPL2 chips of the Sound Blaster
-    Pro 1.0 will not produce stereo audio on any other Sound Blaster models
-    (including the Sound Blaster Pro 2.0). Therefore, it is important to set
-    the correct Sound Blaster model for such software by specifying `sbtype =
-    sbpro1` in the configuration.
+    Games with stereo OPL sound are usually targeting either the dual OPL2
+    equipped Sound Blaster Pro 1.0, or the OPL3 chip of later models (OPL3 is
+    capable of stereo sound in a single chip). It is important to configure
+    these games for the appropriate Sound Blaster model via the
+    [sbtype](#sbtype) setting, and select the same model in the game's sound
+    setup. Failing to do so will produce mono OPL sound at best, or no sound
+    at all at worst.
+
+
+!!! note
+
+    This is the only card supported by the known OEM releases of Microsoft Windows
+    3.0a with Multimedia Extensions.
 
 
 
@@ -318,11 +350,14 @@ sbtype = sbpro1
 The **Sound Blaster Pro 2.0** was released by Creative Technology in 1991,
 quickly replacing its predecessor, the Sound Blaster Pro.
 
-It is functionally the same as the earlier Sound Blaster Pro with one key difference:
-instead of the dual OPL2 chips, it uses a single Yamaha OPL3 chip for stereo
-FM sound.
+It is functionally the same as the earlier Sound Blaster Pro with one key
+difference: instead of the dual OPL2 chips, it sports a single Yamaha OPL3
+chip also capable of producing stereo sound. The OPL3 has perfect backward
+compatibility with the single-OPL2 configuration of earlier cards, but not
+with dual OPL2. Please refer to the [List of games that support stereo OPL
+sound](TODO) for further details.
 
-Use the following settings to enable Sound Blaster Pro 2.0 emulation:
+Use the following setting to enable Sound Blaster Pro 2.0 emulation:
 
 ``` ini
 [sblaster]
@@ -331,42 +366,33 @@ sbtype = sbpro2
 
 !!! important
 
-    Software specifically written for the dual OPL2 chips of the Sound Blaster
-    Pro 1.0 will not produce stereo audio on the Sound Blaster Pro 2.0, but
-    will revert to the default mono OPL2 compatibility mode of the OPL3 chip.
-    Therefore, it is important to set the correct Sound Blaster model for such
-    software by specifying `sbtype = sbpro1` in the configuration.
-
-    Likewise, software targeting the OPL3 specifically will only work
-    correctly on Sound Blaster Pro 2.0 and later models that feature the
-    OPL3 chip.
+    Games with stereo OPL sound are usually targeting either the dual OPL2
+    equipped Sound Blaster Pro 1.0, or the OPL3 chip of later models, such as
+    the Sound Blaster Pro 2.0 (OPL3 is capable of stereo sound in a single
+    chip). It is important to configure these games for the appropriate Sound
+    Blaster model via the [sbtype](#sbtype) setting, and select the same model
+    in the game's sound setup. Failing to do so will produce mono OPL sound at
+    best, or no sound at all at worst.
 
 
 ## Sound Blaster 16
 
 The **Sound Blaster 16** was released by Creative Technology in June 1992.
 This is the first Sound Blaster card to support CD-quality sound (stereo
-16-bit digital audio at 44.1 kHz sample rate). The card features the Yahama
-OPL3 chip that has perfect backward-compatibility with OPL2, and supports
-stereo operation in a single chip.
+16-bit digital audio at 44kHz sample rate). The card features the Yahama OPL3
+chip that has perfect backward-compatibility with OPL2 (but not dual OPL2),
+and supports stereo operation in a single chip.
 
-The Sound Blaster 16 has less than perfect compatiblity with earlier models.
-Due to a design flaw, Sound Blaster Pro compatibility mode works in mono only,
-and the analog output filter behaviour of previous models is not replicated,
-making earlier games sound different and subjectively wrong to many.
+DOSBox emulates the Sound Blaster 16 by default. Most games either support
+this card directly, or will work with selecting an earlier Sound Blaster model
+in the game's setup, making use of the card's backward-compatibility feature.
+This is a good overall default, but if you're an audio enthusiast or would
+just like to get the best possible experience out of a given game, reading the
+[Selecting the best Sound Blaster model for a
+game](#selecting-the-best-sound-blaster-model-for-a-game) section is highly
+recommended.
 
-In its early stages, Sound Blaster 16 retained the Yamaha OPL3 chip for FM
-music synthesis, so was still backward-compatible with the original Sound
-Blaster.
-
-Some key features of the SB 16
-
-- "noisy" audio
-
-Sound Blaster 16 emulation is enabled by default, and can be enabled by
-setting sbtype=sb16 in the [sblaster] section of the DOSBox-X config file.
-
-Use the following settings to enable Sound Blaster 16 emulation:
+Use the following setting to enable Sound Blaster 16 emulation:
 
 ``` ini
 [sblaster]
@@ -376,25 +402,77 @@ sbtype = sb16
 
 ## AdLib Gold 1000
 
-The **AdLib Gold 1000** was released in 1992. It is backward compatible with
-the earlier AdLib Music Synthesizer Card, but not with the Sound Blaster
-cards.
+The **AdLib Gold 1000** was released in 1992. It has a Yamaha OPL3 chip and a
+stereo audio processor on-board, and it also supports 12-bit digital audio. An
+optional surround module is available to add further spatial effects to the
+OPL output (e.g., chorus and reverb).
 
-Use the following settings to enable AdLib Gold 1000 emulation, including the
-surround module add-on:
+DOSBox fully emulates the card, including the surround module, except for the
+digital audio capabilities.
+
+Very few games have direct support for the AdLib Gold 1000, and no known game
+makes use of its digital audio features. The single game in existence that
+really takes advantage of the AdLib Gold and its surround module is the
+adventure game **Dune** from 1992.
+
+Use the following settings to enable AdLib Gold 1000 emulation. Typically, you
+would use the card together with a Sound Blaster for digital audio.
 
 ``` ini
 [sblaster]
+sbtype = sbpro2
 oplmode = opl3gold
 ```
 
 
 ## Configuration settings
 
-All Creative Music System, Sound Blaster and AdLib related settings are to be
-configured in the `[sblaster]` section.
+Due to their tightly coupled nature, all AdLib, Creative Music System (CMS),
+Game Blaster and Sound Blaster settings are to be configured in the
+`[sblaster]` section.
 
 ### Sound Blaster
+
+Many DOS programs use the `BLASTER` DOS environment variable to auto-detect
+and auto-configure the Sound Blaster card. On a real machine, this variable is
+set up in `AUTOEXEC.BAT` during the Sound Blaster driver installation process.
+
+DOSBox injects the `BLASTER` environment variable at startup based on the
+card's configuration in the `[sblaster]` section. You should never set this
+variable manually.
+
+To view the value of the variable, execute the `SET BLASTER` DOS
+command. For example, this is the output you'll get with the default settings:
+
+```
+BLASTER=A220 I7 D1 H5 T6
+```
+
+The meaning of the space-separated values are as follows:
+
+<div class="compact" markdown>
+
+- `Axyz` --- base address ([sbbase](#sbbase))
+- `Ix` --- IRQ number ([irq](#irq))
+- `Dx` --- DMA channel ([dma](#dma))
+- `Hx` --- High DMA channel ([hdma](#hdma))
+
+</div>
+
+The number after the `T` parameter describes the type of the card:
+
+<div class="compact" markdown>
+
+- `1` -- Sound Blaster 1.x
+- `2` --  Sound Blaster Pro
+- `3` --  Sound Blaster 2.x
+- `4` --  Sound Blaster Pro 2
+- `5` --  Sound Blaster Pro MCA *--- not used by DOSBox*
+- `6` --  Sound Blaster 16, 32, AWE32/64, or ViBRA
+- `10` -- Sound Blaster MCA *--- not used by DOSBox*
+
+</div>
+
 
 ##### sbtype
 
@@ -405,7 +483,7 @@ configured in the `[sblaster]` section.
     <div class="compact" markdown>
 
     - `none` -- Disable Sound Blaster emulation.
-    - `gb` -- [Creative Music System (C/MS) Game Blaster](#creative-music-system-cms-game-blaster)
+    - `gb` -- [Creative Music System (CMS) / Game Blaster](#creative-music-system-cms-game-blaster)
     - `sb1` -- [Sound Blaster 1.0](#sound-blaster-10)
     - `sb2` -- [Sound Blaster 2.0](#sound-blaster-20)
     - `sbpro1` -- [Sound Blaster Pro](#sound-blaster-pro)
@@ -428,9 +506,14 @@ configured in the `[sblaster]` section.
 
     You can typically only choose between `220`, `240` and `260` on real cards.
 
+    The AdLib Music Synthesizer Card has a fixed base address of `380` that
+    cannot be changed. Games can access the Yamaha OPL chip on Sound Blaster
+    cards either at base address `380` (this is the AdLib compatibility mode),
+    or at the Sound Blaster's base address.
+
     !!! important
 
-        Virtually all games with Game Blaster / Creative Music System (CM/S)
+        Virtually all games with Game Blaster / Creative Music System (CMS)
         support only work with the base address set to `220`. A significant
         number of early 90s games with Sound Blaster support also assume a
         base address of `220` and do not let the user the change it, making
@@ -443,21 +526,23 @@ configured in the `[sblaster]` section.
 
     Possible values: `3`, `5`, `7` *default*{ .default }, `9`, `10`, `11`, `12`.
 
-    You can typically only choose between `5` and `7` on real cards.
+    You can typically only choose between `3`, `5`, `7` and `10` on real cards,
+
+    Many games do not recognize IRQs higher than 7.
 
     !!! important
 
-        Cards up until the Sound Blaster Pro 1.0 defaulted to IRQ 7. From
-        the Sound Blaster Pro 2.0 onwards, the default had been changed to
-        IRQ 5. Some earlier games assume IRQ 7 and do not let the user to change
-        it. Games assuming IRQ 5 is less of a problem, making `7` the overall
+        Cards before the Sound Blaster 16 defaulted to IRQ 7. From the Sound
+        Blaster 16 onwards, the default had been changed to IRQ 5. Because of
+        this, many earlier games assume IRQ 7 and do not let the user to
+        change it. Games that assume IRQ 5 are rarer, making `7` the overall
         most compatible setting.
 
 
 ##### dma
 
 :   The DMA (also referred to as low DMA) channel used for 8-bit
-    transfers of the Sound Blaster.
+    digital audio on the Sound Blaster.
 
     Possible values: `0`, `1` *default*{ .default }, `3`, `5`, `6`, `7`.
 
@@ -471,13 +556,12 @@ configured in the `[sblaster]` section.
 
 ##### hdma
 
-:   The high DMA channel used for 16-bit transfers of the Sound Blaster.
+:   The high DMA channel used for 16-bit digital audio on the Sound Blaster
+    16.
 
     Possible values: `0`, `1`, `3`, `5` *default*{ .default }, `6`, `7`.
 
-    You can typically only choose between `5` and `7` on real cards.
-
-    High DMA is only used on the Sound Blaster 16 for 16-bit digital audio.
+    You can typically only choose between `5`, `6` and `7` on real cards.
 
 
 ##### sbmixer
@@ -487,39 +571,65 @@ configured in the `[sblaster]` section.
     Possible values: `on`, `off` *default*{ .default }
 
     Starting with the Sound Blaster Pro, programs can adjust the volume of the
-    digital sound, OPL, and CD Audio channels via the Sound Blaster software
+    digital audio, OPL, and CD Audio channels via the Sound Blaster software
     mixer. By default, DOSBox forwards these adjustments to the DOSBox mixer
     which can potentially result in your manually set volumes being
-    overridden. To prevent this from happening, set the [`sbmixer`](#sbmixer)
+    overridden. To prevent this from happening, set the `sbmixer`
     configuration setting to `off` to retain full manual control over the
-    mixer channels.
+    channel volumes. Note that this might break some games that use the mixer
+    to achieve certain effects (e.g., dynamically lowering the music volume
+    when voice-overs are playing).
 
 
 ##### sbwarmup
 
-:   Silence initial DMA audio after card power-on, in milliseconds.
+:   Silence initial digital audio after card power-on for this many
+    milliseconds.
 
     Default value: `100`
 
     This mitigates pops heard when starting many Sound Blaster based games.
-    Reduce this if you notice intial playback is missing audio.
+    Reduce this if you notice intial playback is missing digital audio.
 
 
 ##### sb_filter
 
-:   Type of filter to emulate for the Sound Blaster digital sound output:
+:   Filter settings for the Sound Blaster digital audio output:
 
-    - `auto` -- Use the appropriate filter determined by [sbtype](#sbtype).
-    - `sb1`, `sb2`, `sbpro1`, `sbpro2`, `sb16` -- Use the filter of this Sound Blaster model.
-    - `modern` *default*{ .default } -- Use linear interpolation upsampling that acts as a low-pass filter; this is the legacy DOSBox behaviour.
-    - `off` -- Don't filter the output.
-    - `<custom>` -- Specify a custom filter; see [Custom filter settings](../analog-output-filter/#custom-filter-settings) for details.
+    - `auto` -- Use the appropriate filter determined by the [sbtype](#sbtype)
+      setting.
+    - `sb1`, `sb2`, `sbpro1`, `sbpro2`, `sb16` -- Use the digital audio filter
+      of this Sound Blaster model.
+    - `modern` *default*{ .default } -- Use linear interpolation upsampling
+      regardless of the `sbtype` setting. This is the legacy DOSBox
+      behaviour; it acts as a sort of a low-pass filter. Use `auto` instead
+      to enable model-authentic filter emulation.
+    - `off` -- Don't filter the digital audio output.
+    - `<custom>` -- Custom filter definition; see
+      [Custom filter settings](../../analog-output-filters/#custom-filter-settings)
+      for details.
+
+    These are the model specific low-pass filter settings for the digital
+    audio output:
+
+    <div class="compact" markdown>
+
+    | `sbtype`             | Filter type           | Cutoff frequency |
+    | -------------------- | --------------------- | ---------------- |
+    | `sb1`                | 2nd order (12dB/oct)  | 3.8kHz 
+    | `sb2`                | 2nd order (12dB/oct)  | 4.8kHz
+    | `sbpro1`<br>`sbpro2` | 2nd order (12dB/oct)  | 3.2kHz
+    | `sb16`               | brickwall             | variable;<br>half of the playback rate
+
+    </div>
+
+    TODO -- audio samples
 
 
 ##### sb_filter_always_on
 
-:   Force the Sound Blaster filter to be always on (disallow programs from
-    turning the filter off).
+:   Force the Sound Blaster digital audio filter to be always on (disallow
+    programs from turning the filter off on models that allow this).
 
     Possible values: `on`, `off` *default*{ .default }
 
@@ -530,6 +640,9 @@ configured in the `[sblaster]` section.
 
 :   OPL mode to emulate.
 
+    DOSBox uses the highly accurate NukedOPL library to achieve a nearly
+    bit-perfect emulation of the Yamaha OPL chips.
+
     Possible values:
 
       - `none` -- Disable OPL emulation.
@@ -539,11 +652,11 @@ configured in the `[sblaster]` section.
         [sbtype](#sbtype) setting (see [Emulated Sound Blaster
         models](#emulated-sound-blaster-models) for an overview).
 
-      - `cms` -- Two Philips SAA1099 chips as used in the Creative Music
-        System / Game Blaster (not OPL compatible).
+      - `cms` -- Two Philips SAA1099 chips in a stereo configuration as used
+        on the Creative Music System / Game Blaster (*not* OPL compatible).
 
-      - `opl2` -- Yamaha YM3812 (OPL2) as found on the original AdLib Music
-        Synthesiser and early Sound Blaster cards.
+      - `opl2` -- A single Yamaha YM3812 (OPL2) as found on the original AdLib
+        Music Synthesizer Card and early Sound Blaster models.
 
       - `dualopl2` -- Two Yamaha OPL2 chips in a stereo configuration as
          found on the Sound Blaster Pro 1.0.
@@ -551,37 +664,59 @@ configured in the `[sblaster]` section.
       - `opl3` -- Yamaha YMF262 (OPL3) as found on the Sound Blaster Pro 2.0
         and later cards.
 
-      - `opl3gold` -- Yamaha OPL3 as found on the AdLib Gold. Also enables the
-        emulation of the on-board Philips TDA8425 Hi-fi Stereo Audio
-        Processor and the Yamaha YM7128 Surround Processor found on the
-        optional surround module.
+      - `opl3gold` -- Yamaha OPL3 as found on the AdLib Gold 1000. Also
+        enables the emulation of the on-board Philips TDA8425 Hi-fi Stereo
+        Audio Processor, plus the Yamaha YM7128 Surround Processor found on
+        the optional surround module.
 
     !!! note
 
-        When `oplmode` is set to `opl2`, C/MS emulation is always enabled as
-        well. Likewise, C/MS emulation should have its own config setting as
-        it has nothing to do with OPL. Both issues are historical shortcoming
-        of the original DOSBox and will be addressed in a future version of
-        DOSBox Staging.
+        When `oplmode` is set to `opl2`, CMS emulation is always enabled as
+        well. This is legacy DOSBox behaviour, and will be addressed in a
+        future version.
+
+        Also, `cms` should not be an OPL mode as it has nothing to do with
+        Yamaha OPL; it's an entirely different chip from Philips. This is
+        another legacy wrinkle that will be ironed out in the future.
+
 
 
 ##### opl_filter
 
-:   Type of filter to emulate for the Sound Blaster OPL output:
+:   Filter settings for the OPL output:
 
-    - `auto` *default*{ .default } -- Use the appropriate filter determined by [sbtype](#sbtype).
-    - `sb1`, `sb2`, `sbpro1`, `sbpro2`, `sb16` -- Use the filter of this Sound Blaster model.
-    - `off` -- Don't filter the output.
-    - `<custom>` -- Custom filter definition; see [sb_filter](#sb_filter) for details.
+    - `auto` *default*{ .default } -- Use the appropriate filter determined by the [sbtype](#sbtype) setting.
+    - `sb1`, `sb2`, `sbpro1`, `sbpro2`, `sb16` -- Use the OPL filter of this Sound Blaster model.
+    - `off` -- Don't filter the OPL output.
+    - `<custom>` -- Custom filter definition; see
+      [Custom filter settings](../../analog-output-filters/#custom-filter-settings)
+      for details.
+
+    These are the model specific low-pass filter settings for OPL output: 
+
+    <div class="compact" markdown>
+
+    | `sbtype`             | Filter type           | Cutoff frequency |
+    | -------------------- | --------------------- | ---------------- |
+    | `sb1`<br>`sb2`       | 1st order (6dB/oct)   | 12kHz 
+    | `sbpro1`<br>`sbpro2` | 1st order (6dB/oct)   | 8kHz
+    | `sb16`               | no filter             | N/A
+
+    </div>
+
+    TODO -- audio samples
 
 
 ### CMS
 
 ##### cms_filter
 
-:   Filter for the Sound Blaster CMS output:
+:   Filter for the Creative Music System (CMS) / Game Blaster output:
 
-    - `on` *default*{ .default } -- Filter the output.
-    - `off` -- Don't filter the output.
-    - `<custom>` -- Custom filter definition; see `sb_filter` for details.
+    - `on` *default*{ .default } -- Filter the CMS output (1st order (6dB/oct)
+      low-pass filter at 6kHz).
+    - `off` -- Don't filter the CMS output.
+    - `<custom>` -- Custom filter definition; see
+      [Custom filter settings](../../analog-output-filters/#custom-filter-settings)
+      for details.
 

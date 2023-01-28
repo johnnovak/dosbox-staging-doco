@@ -255,6 +255,9 @@ body {
 .md-typeset figure {
   max-width: 756px;
 }
+.md-typeset figure audio {
+  width: 17rem;
+}
 .md-typeset figcaption {
   font-size: 95%;
   max-width: 28rem

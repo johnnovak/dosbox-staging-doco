@@ -27,3 +27,8 @@ particular note is the ultradir option, which must be set to the path to the
 patch files inside DOSBox. (Which is likely not the same as the path on your
 real hard drive.)
 
+
+
+On the plus side, when games did offer support for the Gravis, it provided a far greater audio capability than anything else on the home consumer market. It allowed for 14 channels at 44kHz playback or 32 channels at 19.2kHz.
+
+Several games require the use of Gravis drivers, and as copyrighted software from a commercial company, these drivers are not included with the open-sourced DOSBox installation. You need to install the drivers within DOSBox session to a subdirectory and afterwards change ultradir= to point to this directory path in Windows, macOS or Linux.
